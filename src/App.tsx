@@ -3,6 +3,7 @@ import './App.css';
 import { Provider } from 'react-redux';
 import TodoPage from './pages/TodoPage';
 import store from './store';
+import { StyledLink } from './styled';
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <div className="App">
         <TodoPage />
       </div>
+      <StyledLink><a href="" className='some-class'></a></StyledLink>
     </Provider>
   );
 }

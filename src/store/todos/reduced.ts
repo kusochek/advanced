@@ -3,7 +3,7 @@ import { moduleName } from "./constants";
 import thunks from "./thunks";
 import actions from "./actions";
 
-type TodosItem = {
+export type TodosItem = {
   id: string;
   createdAt: string;
   isCompleted: Boolean;
@@ -18,6 +18,29 @@ const initialState = {
   todos: [],
 };
 
+// export const todosSlice = createSlice({
+//   name: moduleName,
+//   initialState,
+//   reducers: {
+//     // clearTodos: (state) => {
+//     //   state.todos = [];
+//     // },
+//   },
+//   extraReducers: (builder: ActionReducerMapBuilder<ITodos>) => {
+//     // builder.addCase(actions.clearTodoAction, (state) => {
+//     //   state.todos = [];
+//     // });
+//     builder.addCase(thunks.fetchTodosThunk.fulfilled, (state, { payload }) => {
+//       state.todos = payload;
+//     });
+//     builder.addCase(thunks.deleteTodoThunk.fulfilled, (state, { payload }) => {
+//       if (state.todos.length) {
+//         state.todos = state.todos.filter((todo) => todo.id !== payload);
+//       }
+//     });
+//   }
+// });
+
 export const todosSlice = createSlice({
   name: moduleName,
   initialState,
@@ -30,14 +53,15 @@ export const todosSlice = createSlice({
     // builder.addCase(actions.clearTodoAction, (state) => {
     //   state.todos = [];
     // });
-    builder.addCase(thunks.fetchTodosThunk.fulfilled, (state, { payload }) => {
-      state.todos = payload;
+    builder.addCase(actions.fetchTodosSuccess, (state, { payload }) => {
+      console.log(payload);
+      // state.todos = payload;
     });
-    builder.addCase(thunks.deleteTodoThunk.fulfilled, (state, { payload }) => {
-      if (state.todos.length) {
-        state.todos = state.todos.filter((todo) => todo.id !== payload);
-      }
-    });
+    // builder.addCase(actions.deleteTodoSuccess, (state, { payload }) => {
+    //   if (state.todos.length) {
+    //     state.todos = state.todos.filter((todo) => todo.id !== payload);
+    //   }
+    // });
   }
 });
 
