@@ -8,6 +8,7 @@ export type TodosItem = {
   createdAt: string;
   isCompleted: Boolean;
   name: string;
+  pet?: string;
 }
 
 interface ITodos {

@@ -1,7 +1,9 @@
-import { List } from '@mui/material';
 import React from 'react';
+import { List } from '@mui/material';
 import BasicListItem from './BasicListItem';
 import { TodosItem } from '../../store/todos/reduced';
+
+// const arr: Array<number> = [1,2,3,4,5];
 
 type Props = {
   todos: TodosItem[];

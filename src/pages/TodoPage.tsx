@@ -42,7 +42,7 @@ function TodoPage(): JSX.Element {
   };
 
   return (
-    <>
+    <div data-testid="TodoPageWrapper">
       <BasicList todos={todos} handleDelete={onDelete} />
       <Button onClick={clearTodoList}>Clear!</Button>
       <div>
@@ -50,7 +50,7 @@ function TodoPage(): JSX.Element {
         <input type='text' name='age' placeholder='Age' onChange={changeInput} />
         <input type='text' name='favAnimal' placeholder='Favorite Animal' onChange={changeInput} />
       </div>
-    </>
+    </div>
   );
 }
 
